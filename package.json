@@ -1,8 +1,8 @@
 {
   "author": "Emanuel Hernández",
   "name": "timestamp-api",
-  "version": "0.0.1",
-  "description": "An FCC Backend Challenge",
+  "version": "0.1.1",
+  "description": "Microservice for formatting dates between different formats",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -15,12 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/freeCodeCamp/boilerplate-project-timestamp.git"
+    "url": "https://github.com/JEEIMKG-Technologies/timestamp-api.git"
   },
   "bugs": {
     "url": "https://github.com/freeCodeCamp/freeCodeCamp/issues"
   },
-  "homepage": "https://github.com/freeCodeCamp/boilerplate-project-timestamp#readme",
   "keywords": [ "api", "express", "freeCodeCamp", "microservice" ],
   "license": "MIT"
 }
