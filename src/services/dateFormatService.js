@@ -17,7 +17,14 @@ class DateFormatService {
 
     // response (in unix and utc format)
     static buildResponse(date) {
-        return { unix: date.getTime(), utc: date.toUTCString() };
+        let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        return { 
+            unix: date.getTime(), 
+            utc: date.toUTCString(), 
+            iso: date.toISOString(),
+            en: date.toDateString(),
+            es: date.toLocaleDateString('es-ES', options)
+        };
     }
 }
 
