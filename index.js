@@ -9,8 +9,12 @@ const timestampRoutes = require("./src/routes/timestampRoutes");
 app.use(express.static('public'));
 
 // Vista principal
+app.set('view engine', 'pug');
+app.set('views', './src/views');
+
+
 app.get("/", function (req, res) {
-  res.sendFile(__dirname + '/src/views/index.html');
+  res.render('index');
 });
 
 // Rutas

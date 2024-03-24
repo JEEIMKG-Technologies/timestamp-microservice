@@ -2,19 +2,32 @@ const DateFormatService = require("../services/dateFormatService");
 
 class TimestampController {
     static getTimestamp(req, res) {
-        const dateParam = req.params.date;
-        let date;
+        const { date } = req.params;
+        const { format } = req.query;
 
-        if (!dateParam) {
-            date = DateFormatService.getCurrentTimestamp();
+        let parsedDate;
+        if (!date) {
+            parsedDate = new Date();
         } else {
-            date = DateFormatService.parseDate(dateParam);
-            if (!DateFormatService.isValidDate(date)) {
-                return res.json({ error: "Invalid date" });
+            parsedDate = DateFormatService.parseDate(date);
+            if (!DateFormatService.isValidDate(parsedDate)) {
+                return res.json({ error: "Fecha no válida" });
             }
         }
 
-        const response = DateFormatService.buildResponse(date);
+        let response;
+        if (format) {
+            response = DateFormatService.formatDate(parsedDate, format);
+        } else {
+            response = {
+                unix: DateFormatService.formatDate(parsedDate, 'unix'),
+                utc: DateFormatService.formatDate(parsedDate, 'utc'),
+                iso: DateFormatService.formatDate(parsedDate, 'iso'),
+                en: DateFormatService.formatDate(parsedDate, 'en'),
+                es: DateFormatService.formatDate(parsedDate, 'es')
+            };
+        }
+
         res.json(response);
     }
 }

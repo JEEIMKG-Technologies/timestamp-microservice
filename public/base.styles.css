@@ -1,0 +1,14 @@
+/****** Main Styling ******/
+
+*{ border: 0; margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+	width: 100%;
+    height: 100vh;
+	font-family: "Be Vietnam Pro", sans-serif;
+	background-color: #161616;
+}
+
+h2{ font-weight: 500; color: #fafafa; }
+
+ul { list-style-type: none; }
